@@ -1,0 +1,285 @@
+/* ===== Общие стили ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f7fa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2d3436;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #2d3436;
+    margin-bottom: 15px;
+}
+
+/* ===== Баланс ===== */
+.balance {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.balance-label {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.balance-amount {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.balance-details {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.balance-details .income {
+    color: #00b894;
+}
+
+.balance-details .expense {
+    color: #fd79a8;
+}
+
+.balance-details span {
+    font-weight: bold;
+}
+
+/* ===== Форма ===== */
+.form {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 5px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    background: white;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #6c5ce7;
+}
+
+.field input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.field input[type="number"]::-webkit-outer-spin-button,
+.field input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+#addBtn {
+    width: 100%;
+    padding: 14px;
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 5px;
+}
+
+#addBtn:hover {
+    background: #5a4bd1;
+}
+
+/* ===== Список операций ===== */
+.transactions {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+#transactionsList {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* ===== Запись ===== */
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.transaction-item:hover {
+    background: #f8f9fa;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-info {
+    flex: 1;
+}
+
+.transaction-info .category {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3436;
+}
+
+.transaction-info .description {
+    font-size: 13px;
+    color: #636e72;
+    margin: 2px 0;
+}
+
+.transaction-info .date {
+    font-size: 12px;
+    color: #b2bec3;
+}
+
+.transaction-amount {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 15px;
+    min-width: 100px;
+    text-align: right;
+}
+
+.transaction-amount.income {
+    color: #00b894;
+}
+
+.transaction-amount.expense {
+    color: #fd79a8;
+}
+
+.transaction-delete {
+    padding: 5px 12px;
+    background: #dfe6e9;
+    color: #636e72;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.transaction-delete:hover {
+    background: #fd79a8;
+    color: white;
+}
+
+/* ===== Пустое состояние ===== */
+.empty {
+    text-align: center;
+    color: #b2bec3;
+    padding: 30px 0;
+}
+
+.empty .emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ===== Анимация ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 500px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .balance-amount {
+        font-size: 28px;
+    }
+    
+    .balance-details {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .transaction-item {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .transaction-amount {
+        min-width: auto;
+        text-align: left;
+        margin: 0;
+    }
+}
